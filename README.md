@@ -67,8 +67,10 @@ For the backend I use PHP 8.1.4 and MySQL.
 
 # PROBLEMS/TRADEOFFS
 
+I created the site just for my personal use running locally with XAMPP. Maybe I will add functionality for multiple users later on. If I would ever plan to host this on a remote server, I'd need to change a lot of things regarding the access of the database (e.g. root pw) and strongly improve security aspects.
+
 I am aware of some security issues of this application which I intend to improve in the future. 
-The main points here are first the accessing of the DB with plaintext password and second the use of mysqli.
+One main point here is the use of mysqli with plain SQL statements. A safer approach with prepared Statements and PDO would be better.
 
 I used get method for the "edit" functionality, even though I'd prefer to use a different method (post or session).
 I will readdress this issue when I am adding the login functionality because then I will have to use sessions or something similiar anyways.
@@ -78,7 +80,7 @@ I couldn't make it work to have the "card-action" section of the cards on the ri
 In "addtodo.php" and "edit.php" I didn't use the materialize textarea because I don't know how to transfer the data via post method with it.
 In "addtodo.php" and "edit.php"I couldn't make it work to change the colors in the dropdown menu for the priority. It seems there is some JS knowledge needed for this.
 
-I used get method for the "edit" functionality, even though I'd prefer to use a different method (post or session)
+I used get method for the "edit" functionality, even though I'd prefer to use a different method (post or session). I couldn't make the design work without it, because I couldn't realize it with e.g. a hidden form.
 
 Responsiveness:
 This app is mainly for desktop use, so I didn't make it responsive for mobile use and I don't intend to.
@@ -86,15 +88,14 @@ This app is mainly for desktop use, so I didn't make it responsive for mobile us
 # FUTURE FEATURES
 
 - PHP: replace mysqli usage with PDO, prepared statements and whitelist
-- PHP/SQL: change access to DB (there must be a safer way than accessing the DB with PW in plain text)
 - JS: add some JavaScript (e.g. asking for confirmation when deleting a toDo etc.)
 - JS: change some materialize classes (e.g. color for the dropdowns)
+- PHP: use different method for passing data to edit.php, maybe use session/server (probably design tradeoff with materialize)
 - PHP: add a login functionality
-- PHP: use different method for passing data to edit.php, maybe use session/server
 - PHP/SQL: make multiple users possible
 - PHP/SQL: make multiple toDo-lists/categories per user possible
+- PHP/SQL: add "push to top" functionality (change order of todos' sorting)
 - PHP/SQL: find a better way to sort toDos when updated/be pushed to top
-- MATERIALIZE/CSS: try different design for "todo"-cards on main: card clickable instead of "edit button", checkbutton on the right side
 
 
 
